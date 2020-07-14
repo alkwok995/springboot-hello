@@ -52,6 +52,7 @@ public class SystemUserControllerTest extends BaseControllerTest {
                 MockMvcRequestBuilders.post("/systemUser/user").contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8").content(jsonStr))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.userId", Matchers.notNullValue()))
                 .andReturn().getResponse().getContentAsString();
 
         System.out.println("===========================");
