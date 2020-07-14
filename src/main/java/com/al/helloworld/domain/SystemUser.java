@@ -21,6 +21,7 @@ public class SystemUser {
 
     private String firstName;
     private String lastName;
+    private String password;
 
     @Override
     public String toString() {

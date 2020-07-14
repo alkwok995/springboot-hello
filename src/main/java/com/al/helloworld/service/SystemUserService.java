@@ -14,5 +14,5 @@ public interface SystemUserService {
     List<SystemUser> findAllUser();
     List<SystemUser> findUserByLastName(String lastName);
     SystemUser saveSystemUser(SystemUser systemUser);
-
+    boolean doLogin(Long userId, String password);
 }

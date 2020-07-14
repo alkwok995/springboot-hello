@@ -6,9 +6,8 @@ import com.al.helloworld.service.SystemUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * 用户Service实现类
@@ -34,5 +33,15 @@ public class SystemUserServiceImpl implements SystemUserService {
     @Override
     public SystemUser saveSystemUser(SystemUser systemUser) {
         return systemUserRepository.save(systemUser);
+    }
+
+    @Override
+    public boolean doLogin(Long userId, String password) {
+        Optional<SystemUser> user = systemUserRepository.findById(userId);
+        if(user.isPresent()) {
+            return user.get().getPassword().equals(password);
+        } else {
+            return false;
+        }
     }
 }
