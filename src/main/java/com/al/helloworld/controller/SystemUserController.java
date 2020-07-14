@@ -4,10 +4,7 @@ import com.al.helloworld.domain.SystemUser;
 import com.al.helloworld.service.SystemUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,7 +34,8 @@ public class SystemUserController {
     }
 
     @PostMapping("/user")
-    public SystemUser saveUser(SystemUser user) {
+    public SystemUser saveUser(@RequestBody SystemUser user) {
+        System.out.println(user);
         return systemUserService.saveSystemUser(user);
     }
 }
