@@ -49,7 +49,7 @@ public class SystemUserControllerTest extends BaseControllerTest {
 
         String result = mockMvc.perform(
 //                MockMvcRequestBuilders.post("/systemUser/user").params(paramMap))
-                MockMvcRequestBuilders.post("/systemUser/user").contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8").content(jsonStr))
+           MockMvcRequestBuilders.post("/systemUser/user").contentType(MediaType.APPLICATION_JSON).characterEncoding("UTF-8").content(jsonStr))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.userId", Matchers.notNullValue()))
